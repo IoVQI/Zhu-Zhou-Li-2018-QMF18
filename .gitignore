@@ -1,0 +1,47 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+env/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Output data (large files — keep only scripts and small samples)
+*.csv
+*.json
+!pyproject.toml
+
+# Input data files (small, keep in repo)
+!data/*.dat
+
+# Images (regenerable)
+*.png
+*.jpg
+*.pdf
+
+# Images (regenerable)
+*.png
+*.jpg
+*.pdf
+
+# Jupyter
+.ipynb_checkpoints/
+
+# Claude Code
+.claude/
