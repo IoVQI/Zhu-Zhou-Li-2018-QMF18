@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Step 2: TOV integration + tidal deformability for a pre-generated QMF18 EOS.
 
-Reads eos.csv from a qmf18_L{} directory, runs tov_core C++ solver,
+Reads eos.csv from a qmf18_L{} directory, runs the pure-Python TOV solver,
 and writes mr_curve.csv + updates benchmarks.json with TOV/tidal results.
 
 Usage:
@@ -14,14 +14,10 @@ import os, sys, time, json, glob as globmod
 import numpy as np
 
 _THIS_DIR = os.path.dirname(os.path.abspath(__file__))
+if _THIS_DIR not in sys.path:
+    sys.path.insert(0, _THIS_DIR)
 
-# Add tov_core to path
-_TOV_CORE = os.path.normpath(os.path.join(_THIS_DIR, '..', '..', '..', '..',
-                                          '..', '..', 'eos_lab', 'tov_core'))
-if _TOV_CORE not in sys.path:
-    sys.path.insert(0, _TOV_CORE)
-
-from src.cpp.tov_core import CppTovSolver
+from tov import TovSolver as CppTovSolver
 
 
 def solve_tov_tidal(eos_path, dr=0.001, rs=1e-5, max_steps=200000, n_rho_c=200):
@@ -44,7 +40,7 @@ def solve_tov_tidal(eos_path, dr=0.001, rs=1e-5, max_steps=200000, n_rho_c=200):
     # Central density grid
     rho_c_grid = np.logspace(np.log10(0.15), np.log10(3.5), n_rho_c)
 
-    # Run TOV + tidal via C++ solver
+    # Run TOV + tidal via Python solver
     solver = CppTovSolver(dr=dr, rs=rs, max_steps=max_steps)
     result = solver.solve_tidal_batch(nB, P, eps, rho_c_grid)
 
@@ -129,7 +125,7 @@ def save_results(tov_data, output_dir):
         benchmarks = {}
 
     benchmarks['tov'] = {
-        'solver': 'eos_lab/tov_core C++ RK4',
+        'solver': 'Pure Python RK4 (tov.py)',
         'dr_km': tov_data['dr_km'],
         'n_stars': tov_data['n_stars'],
         **tov_data['benchmarks'],

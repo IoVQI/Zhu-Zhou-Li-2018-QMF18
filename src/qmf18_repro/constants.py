@@ -76,7 +76,7 @@ Msun_g = 1.988435e33           # g
 Msun_km = G_cgs * Msun_g / (c_cgs ** 2) / 1e5  # ≈ 1.4766 km/M⊙
 km_to_Msun = 1.0 / Msun_km
 
-# MeV/fm³ → km⁻² (geometrized units, matches eos_lab/tov_core)
+# MeV/fm³ → km⁻² (geometrized units)
 _MEVFM3_TO_KM2 = (G_cgs / c_cgs ** 4) * MeVfm3_to_ergcm3 / 1e-10
 _KM2_TO_MEVFM3 = 1.0 / _MEVFM3_TO_KM2
 

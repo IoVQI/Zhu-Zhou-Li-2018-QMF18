@@ -7,7 +7,7 @@
 ## 目录结构
 
 ```
-001_Zhu_Zhou_Li_2018_QMF18/
+Zhu-Zhou-Li-2018-QMF18/
 ├── README.md              # 本文件
 ├── pyproject.toml         # 项目配置
 ├── REFERENCE.md           # 论文元信息
@@ -22,6 +22,7 @@
 │       ├── crust.py       # 外壳 EOS 加载 (BPS + N&V)
 │       ├── main.py        # 旧主入口 (保留兼容)
 │       ├── generate_eos.py    # ★ Step 1: EOS 生成
+│       ├── tov.py             # ★ 纯 Python TOV + 潮汐求解器
 │       ├── compute_tov.py     # ★ Step 2: TOV + 潮汐
 │       ├── plot_eos.py        # ★ 绘图
 │       ├── compare_table3.py  # ★ Table 3 逐点比对
@@ -36,7 +37,7 @@
 ## 快速开始
 
 ```bash
-cd 001_Zhu_Zhou_Li_2018_QMF18
+cd Zhu-Zhou-Li-2018-QMF18
 pip install -e .
 
 # Step 1: 生成 EOS
@@ -99,15 +100,12 @@ python src/qmf18_repro/compare_table3.py
 2. **N&V 内壳数据** (3-8%): 从原始 E/A 表二次推导的稀疏数据
 3. **芯-壳拼接** (1-2%): ρ=0.08 处未做平滑匹配
 
-详见源代码 `reproduction_code/README.md` 中的完整偏差分析。
-
 ## 外部依赖
 
 | 依赖 | 用途 | 说明 |
 |------|------|------|
 | numpy, scipy | 数值计算 | pip install |
 | matplotlib | 绘图 | pip install |
-| eos_lab/tov_core | TOV C++ solver | 需单独编译 |
 
 ## 许可证
 

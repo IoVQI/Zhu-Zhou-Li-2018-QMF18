@@ -20,12 +20,6 @@
 结合 BPS（1971）外壳 EOS 和 TOV 方程求解中子星的 M-R 关系和潮汐形变度，
 与 GW170817 观测约束进行对比。
 
-## Codefield 文献库路径
-
-```
-D:\Codefield\references\equation_of_state\effective_models\quark_matter\Zhu_Zhou_Li_2018\
-```
-
 ## 复现范围
 
 | 复现目标 | 状态 |
