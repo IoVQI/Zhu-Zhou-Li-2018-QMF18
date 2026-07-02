@@ -1,0 +1,38 @@
+# 参考文献
+
+## 论文信息
+
+| 字段 | 值 |
+|------|-----|
+| 标题 | Neutron Star Equation of State from the Quark Level in Light of GW170817 |
+| 作者 | Zhu, Zhou & Li |
+| 期刊 | The Astrophysical Journal |
+| 年份 | 2018 |
+| 卷/页 | ApJ 862, 98 |
+| arXiv | 1802.05510 |
+| DOI | 10.3847/1538-4357/aacb24 |
+
+## 摘要
+
+基于夸克平均场（QMF）模型，从夸克层面构建中子星物质的状态方程（EOS）。
+采用 QMF18 参数化方案，通过 σ/ω/ρ 介子平均场描述核子间相互作用，
+并考虑了质心修正、π 云修正和胶子修正三项核子有效质量修正。
+结合 BPS（1971）外壳 EOS 和 TOV 方程求解中子星的 M-R 关系和潮汐形变度，
+与 GW170817 观测约束进行对比。
+
+## Codefield 文献库路径
+
+```
+D:\Codefield\references\equation_of_state\effective_models\quark_matter\Zhu_Zhou_Li_2018\
+```
+
+## 复现范围
+
+| 复现目标 | 状态 |
+|---------|------|
+| SNM 饱和性质 (Table 1) | ✅ 3/4 指标精确命中 |
+| EOS 生成 (β 平衡) | ✅ 96/96 点收敛 |
+| Table 3 逐点 EOS 比对 | ✅ ε RMS 0.69%, P RMS 2.34% |
+| TOV M-R 曲线 (Table 4) | ✅ M_TOV +0.9%, R(1.4) +1.0% |
+| 潮汐形变度 Λ(1.4) | ⚠️ +3.9% (根因: R⁵ 放大效应) |
+| 双星潮汐 Λ̃ | ⚠️ +3.7% (与 Λ(1.4) 同源) |
